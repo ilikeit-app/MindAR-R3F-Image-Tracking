@@ -1,3 +1,4 @@
+// /components/AR/index.jsx
 // Exportamos todos los componentes y utilidades de AR desde un único archivo
 export { default as AR } from './AR';
 export { default as ARCanvas } from './ARCanvas';

@@ -1,3 +1,4 @@
+// /components/AR/AR.jsx
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { Matrix4, Quaternion, Vector3 } from "three";
 import { useThree } from "@react-three/fiber";
@@ -100,7 +101,9 @@ const AR = memo(function AR({
   const startAR = useCallback(async () => {
     console.log("👾 Start AR");
     const { controller } = arContext;
-
+    
+    let postMatrixs = []; // Mover la declaración al inicio
+  
     controller.onUpdate = (data) => {
       if (data.type === "updateMatrix") {
         const { targetIndex, worldMatrix } = data;
@@ -116,12 +119,11 @@ const AR = memo(function AR({
         }));
       }
     };
-
+  
     resize();
-
+  
     const { dimensions: imageTargetDimensions } = await controller.addImageTargets(imageTargets);
-
-    let postMatrixs = [];
+  
     for (let i = 0; i < imageTargetDimensions.length; i++) {
       const position = new Vector3();
       const quaternion = new Quaternion();
@@ -136,11 +138,11 @@ const AR = memo(function AR({
       postMatrix.compose(position, quaternion, scale);
       postMatrixs.push(postMatrix);
     }
-
+  
     await controller.dummyRun(webcam.current.video);
     controller.processVideo(webcam.current.video);
   }, [arContext, imageTargets, resize, setAnchors, webcam]);
-
+  
   const stopTracking = useCallback(() => {
     const { controller } = arContext;
     controller.stopProcessVideo();

@@ -1,3 +1,4 @@
+// /components/AR/ARCanvas.jsx
 import { useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import Webcam from "react-webcam";

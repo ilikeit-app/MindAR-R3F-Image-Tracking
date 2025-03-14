@@ -1,14 +1,6 @@
 import { useRef } from "react";
 import { ARCanvas, ARAnchor } from "./components/AR";
-
-function Plane() {
-  return (
-    <mesh>
-      <planeGeometry args={[1, 0.55]} />
-      <meshBasicMaterial transparent color={0x0000ff} opacity={0.5} />
-    </mesh>
-  );
-}
+import { Experience } from "./components/Experience";
 
 function App() {
   const container = useRef();
@@ -29,7 +21,7 @@ function App() {
         imageTargets="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind"
       >
         <ARAnchor>
-          <Plane />
+          <Experience/>
         </ARAnchor>
       </ARCanvas>
     </div>

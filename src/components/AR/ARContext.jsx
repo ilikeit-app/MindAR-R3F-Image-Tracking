@@ -1,3 +1,4 @@
+// /components/AR/ARContext.jsx
 import { createContext, useContext, useMemo } from "react";
 import { Matrix4 } from "three";
 import { atom } from "jotai";
@@ -7,6 +8,9 @@ export const ARContext = createContext();
 
 // Atom para manejar el estado de los anclajes
 export const anchorsAtom = atom({});
+
+// Atom para el estado global del ancla (true si encontrado, false si perdido)
+export const anchorStatusAtom = atom(false);
 
 // Matriz invisible para cuando el objetivo no es detectado
 export const invisibleMatrix = new Matrix4().set(

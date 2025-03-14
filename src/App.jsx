@@ -1,76 +1,29 @@
-import { useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+// App.jsx
+import { useRef } from "react";
 import { ARCanvas, ARAnchor } from "./components/AR";
 import { Experience } from "./components/Experience";
-import { OrbitControls } from "@react-three/drei";
-
-function Plane() {
-  return (
-    <mesh>
-      <planeGeometry args={[1, 0.55]} />
-      <meshBasicMaterial transparent color={0x0000ff} opacity={0.5} />
-    </mesh>
-  );
-}
 
 function App() {
   const container = useRef();
-  const [showExperience, setShowExperience] = useState(true);
-
-  const toggleView = () => {
-    setShowExperience((prev) => !prev);
-  };
-
   return (
-    <>
-      {/* Botón para cambiar entre vistas */}
-      <button
-        onClick={toggleView}
-        style={{
-          position: "absolute",
-          top: "20px",
-          left: "20px",
-          zIndex: 10,
-        }}
+    <div
+      id="canvas-container"
+      ref={container}
+      style={{
+        width: "100%",
+        height: "100vh",
+        overflow: "hidden", // Evita que el feed de video se desborde
+      }}
+    >
+      <ARCanvas
+        container={container}
+        imageTargets="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind"
       >
-        {showExperience ? "Mostrar AR" : "Mostrar Experience"}
-      </button>
-
-      {showExperience ? (
-        // Vista Experience a pantalla completa
-        <Canvas
-          style={{ width: "100%", height: "100vh" }}
-          shadows
-          camera={{ position: [3, 3, 3], fov: 30 }}
-        >
-          <color attach="background" args={["#ececec"]} />
-          <OrbitControls/>
-          <Experience />
-        </Canvas>
-      ) : (
-        // Vista AR a pantalla completa
-        <div
-          id="canvas-container"
-          ref={container}
-          style={{
-            width: "100%",
-            height: "100vh",
-            overflow: "hidden", 
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <ARCanvas
-            container={container}
-            imageTargets="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind"
-          >
-            <ARAnchor>
-              <Experience/>
-            </ARAnchor>
-          </ARCanvas>
-        </div>
-      )}
-    </>
+        <ARAnchor>
+          <Experience/>
+        </ARAnchor>
+      </ARCanvas>
+    </div>
   );
 }
 
