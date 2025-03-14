@@ -1,3 +1,4 @@
+// App-prod.jsx
 import { useRef } from "react";
 import { ARCanvas, ARAnchor } from "./components/AR";
 import { Experience } from "./components/Experience";
@@ -12,8 +13,6 @@ function App() {
         width: "100%",
         height: "100vh",
         overflow: "hidden", // Evita que el feed de video se desborde
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
       }}
     >
       <ARCanvas
