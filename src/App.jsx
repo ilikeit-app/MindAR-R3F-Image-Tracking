@@ -18,6 +18,10 @@ function App() {
       <ARCanvas
         container={container}
         imageTargets="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind"
+        filterMinCF={0.001}    // Menor para mayor suavizado
+        filterBeta={1000}      // Mayor para reducir el retardo
+        warmupTolerance={5}    // frames para marcarlo como detectado
+        missTolerance={5}      // frames para marcarlo como no detectado
       >
         <ARAnchor>
           <Experience/>

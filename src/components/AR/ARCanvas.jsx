@@ -4,12 +4,12 @@ import { Canvas } from "@react-three/fiber";
 import Webcam from "react-webcam";
 import AR from "./AR";
 
-function ARCanvas({ children, arEnabled = true, imageTargets, container }) {
+function ARCanvas({ children, arEnabled = true, imageTargets, container, ...props }) {
   const webcam = useRef();
   return (
     <>
       <Canvas>
-        <AR imageTargets={imageTargets} webcam={webcam} container={container}>
+        <AR imageTargets={imageTargets} webcam={webcam} container={container} {...props}>
           {children}
         </AR>
       </Canvas>
