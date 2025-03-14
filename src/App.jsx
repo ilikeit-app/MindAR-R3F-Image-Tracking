@@ -23,7 +23,7 @@ function App() {
         warmupTolerance={5}    // frames para marcarlo como detectado
         missTolerance={5}      // frames para marcarlo como no detectado
       >
-        <ARAnchor>
+        <ARAnchor dampingMultiplier={5}>
           <Experience/>
         </ARAnchor>
       </ARCanvas>
