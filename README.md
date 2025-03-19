@@ -1,6 +1,17 @@
 # MindAR+R3F Image Tracking
 
+This project arises from the need to integrate MindAR with React Three Fiber (R3F). I would like to express my gratitude to the following people and repositories that made this integration possible:
+
+- **MindAR:** Thanks to the creators of [MindAR](https://github.com/hiukim/mind-ar-js) for providing robust AR functionality.
+- **react-three-mind:** Thanks to the creator of [react-three-mind](https://github.com/tommasoturchi/react-three-mind) for kickstarting my journey with this integration.
+- **Community Inspiration:** Thanks to the [pull request comment](https://github.com/tommasoturchi/react-three-mind/pull/18#issuecomment-1896810306) on react-three-mind, I got to know the user [Darkensses](https://github.com/Darkensses).
+- **Special Thanks to Darkensses:** His repository [react-three-mind-experiment](https://github.com/Darkensses/react-three-mind-experiment) allowed me to refactor the code and implement improvements to reduce jittering. 
+
+---
+
 This project is a React application built with Vite that demonstrates augmented reality (AR) image tracking using MindAR and React Three Fiber (R3F). It leverages several libraries such as **three.js** for 3D rendering, **@react-three/fiber** for integrating three.js with React, **mind-ar** for image target tracking, **react-webcam** for real-time video capture, and **jotai** for state management.
+
+https://github.com/user-attachments/assets/ef9d89cd-914b-4119-9668-012c79ba6a65
 
 ## Features
 
@@ -34,16 +45,20 @@ This project is a React application built with Vite that demonstrates augmented 
 
 Clone the repository and navigate into the project folder:
 
+```bash
 git clone https://github.com/yourusername/mindar-r3f-image-tracking.git  
 cd mindar-r3f-image-tracking
+```
 
 ### Installing Dependencies
 
 Install the project dependencies using npm or yarn:
 
+```bash
 npm install  
-or  
+# or  
 yarn install
+```
 
 ## Usage
 
@@ -51,9 +66,11 @@ yarn install
 
 Start the application in development mode with the following command:
 
+```bash
 npm run dev  
-or  
+# or  
 yarn dev
+```
 
 Then, open your browser and navigate to [http://localhost:3000](http://localhost:3000) (or the port indicated by Vite) to view the application.
 
@@ -73,7 +90,6 @@ The core AR functionality is implemented in the **AR** component. Key functions 
 - **Anchor Updates:** Uses jotai to update and manage the transformation matrices for detected image targets, ensuring the correct positioning of 3D objects.
 
 Example usage in **App.jsx**:
-
 
 ```jsx
 import React, { useRef } from "react";
@@ -112,6 +128,7 @@ export default App;
 ```
 
 Make sure that the components **ARCanvas**, **ARAnchor**, and **Plane** are correctly implemented in your project. This snippet now includes all the essential parts for the example usage to work properly.
+
 ## Dependencies
 
 - **React:** The core library for building the user interface.
@@ -144,4 +161,4 @@ This project is distributed under the [MIT License](LICENSE).
 - [MindAR](https://hiukim.github.io/mind-ar-js-doc/) for providing robust AR functionalities.
 - [three.js](https://threejs.org/) for their powerful 3D rendering library.
 - [Vite](https://vitejs.dev/) for delivering an efficient development environment.
-
+- **Special thanks to [Darkensses](https://github.com/Darkensses) for his invaluable contributions and his invaluable contribution and support.**
